@@ -17,10 +17,8 @@ public class Compte {
     @Element(name = "dateCreation", required = false)
     private String dateCreation;
 
-    // Constructeur par défaut (obligatoire pour SimpleXML et Gson)
     public Compte() {}
 
-    // Constructeur avec paramètres
     public Compte(Long id, double solde, String type, String dateCreation) {
         this.id = id;
         this.solde = solde;
@@ -28,7 +26,6 @@ public class Compte {
         this.dateCreation = dateCreation;
     }
 
-    // Getters
     public Long getId() {
         return id;
     }
@@ -45,7 +42,6 @@ public class Compte {
         return dateCreation;
     }
 
-    // Setters
     public void setId(Long id) {
         this.id = id;
     }
@@ -62,7 +58,6 @@ public class Compte {
         this.dateCreation = dateCreation;
     }
 
-    // Méthode toString pour le débogage
     @Override
     public String toString() {
         return "Compte{" +

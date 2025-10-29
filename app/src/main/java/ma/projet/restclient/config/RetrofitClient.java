@@ -8,19 +8,14 @@ public class RetrofitClient {
     private static Retrofit retrofit = null;
     private static String currentFormat = null;
 
-    // CONFIGURATION IMPORTANTE:
-    // Pour ÉMULATEUR: utilisez http://10.0.2.2:8082/
-    // Pour APPAREIL PHYSIQUE: utilisez votre IP locale (ex: http://24.20.0.84:8082/)
-    private static final String BASE_URL = "http://10.37.130.147:8082/";
+    private static final String BASE_URL = "http://10.129.201.147:8082/";
 
     public static Retrofit getClient(String converterType) {
-        // Vérifier si le Retrofit existant peut être réutilisé
         if (retrofit == null || !converterType.equals(currentFormat)) {
             currentFormat = converterType;
             Retrofit.Builder builder = new Retrofit.Builder()
                     .baseUrl(BASE_URL);
 
-            // Ajouter le convertisseur approprié en fonction du type demandé
             if ("JSON".equals(converterType)) {
                 builder.addConverterFactory(GsonConverterFactory.create());
             } else if ("XML".equals(converterType)) {
@@ -31,8 +26,6 @@ public class RetrofitClient {
         }
         return retrofit;
     }
-
-    // Méthode utilitaire pour obtenir l'URL de base
     public static String getBaseUrl() {
         return BASE_URL;
     }
